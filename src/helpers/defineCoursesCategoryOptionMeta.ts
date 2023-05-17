@@ -3,12 +3,12 @@ import { coursesOptionsModel } from '@/model'
 import { categoryOptions } from '@/data/coursesOptions.json'
 
 export function defineCoursesCategoryOptionMeta(
-  option: coursesOptionsModel.CoursesCategoryOptionValue
+  value: coursesOptionsModel.CoursesCategoryOptionValue
 ): coursesOptionsModel.CoursesCategoryOptionMeta {
-  const rawCategoryOption = categoryOptions[option]
+  const rawCategoryOption = categoryOptions[value]
 
   return {
-    value: option,
+    value,
     label: rawCategoryOption.label,
   }
 }
