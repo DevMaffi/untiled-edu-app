@@ -9,5 +9,28 @@
     "likes": {
       "label": "Вподобання"
     }
+  },
+  "topicOptions": {
+    "all": {
+      "label": "Всі теми"
+    },
+    "html": {
+      "label": "HTML"
+    },
+    "css": {
+      "label": "CSS"
+    },
+    "javascript": {
+      "label": "JavaScript"
+    },
+    "react": {
+      "label": "React"
+    },
+    "next": {
+      "label": "Next"
+    },
+    "web-design": {
+      "label": "Веб-дизайн"
+    }
   }
 }
