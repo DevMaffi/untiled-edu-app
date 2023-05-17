@@ -6,7 +6,7 @@ import { Logo } from '@/components'
 import { useIsFirstRender, useObserver } from '@/hooks'
 
 import { ThemeToggleButton } from '@/modules/theme'
-import { CoursesSearch } from '@/modules/coursesList'
+import { CoursesSearch, CoursesListScrollHeader } from '@/modules/coursesList'
 
 export default function PageHeader() {
   const elementRef = useRef<HTMLDivElement | null>(null)
@@ -34,7 +34,6 @@ export default function PageHeader() {
           pos: 'sticky',
           top: 0,
           insetX: 0,
-          bgColor: 'chakra-body-bg',
           zIndex: 1000,
         }}
       >
@@ -43,6 +42,7 @@ export default function PageHeader() {
             justifyContent: 'space-between',
             py: scrolls ? 3.5 : 10,
             px: 20,
+            bgColor: 'chakra-body-bg',
             transition: 'all 400ms',
           }}
         >
@@ -55,6 +55,8 @@ export default function PageHeader() {
         </HStack>
 
         <Divider />
+
+        <CoursesListScrollHeader />
       </Box>
     </>
   )

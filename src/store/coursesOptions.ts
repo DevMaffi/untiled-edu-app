@@ -4,10 +4,12 @@ import { devtools } from 'zustand/middleware'
 import { coursesOptionsModel } from '@/model'
 
 type State = {
+  scrolls: boolean
   searchQuery: string
 } & coursesOptionsModel.CoursesOptionsState
 
 type Actions = {
+  setScrolls: (scrolls: boolean) => void
   setSearchQuery: (query: string) => void
   setCategory: (value: coursesOptionsModel.CoursesCategoryOptionValue) => void
   setTopic: (value: coursesOptionsModel.CoursesTopicOptionValue) => void
@@ -16,6 +18,9 @@ type Actions = {
 export const useCoursesOptions = create<State & Actions>()(
   devtools(
     set => ({
+      scrolls: false,
+      setScrolls: scrolls => set({ scrolls }),
+
       searchQuery: '',
       setSearchQuery: query => set({ searchQuery: query }),
 
