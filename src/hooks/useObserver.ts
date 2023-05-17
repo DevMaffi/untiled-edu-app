@@ -1,7 +1,5 @@
 import { useEffect, useState, type RefObject } from 'react'
 
-type ReturnType = IntersectionObserverEntry | undefined
-
 export function useObserver(
   elementRef: RefObject<Element>,
   {
@@ -9,7 +7,7 @@ export function useObserver(
     root = null,
     rootMargin = '0%',
   }: IntersectionObserverInit = {}
-): ReturnType {
+) {
   const [entry, setEntry] = useState<IntersectionObserverEntry>()
 
   function updateEntry([entry]: IntersectionObserverEntry[]) {
@@ -30,5 +28,5 @@ export function useObserver(
     return () => observer.disconnect()
   }, [elementRef.current])
 
-  return entry
+  return entry as IntersectionObserverEntry | undefined
 }
