@@ -6,6 +6,7 @@ import { Logo } from '@/components'
 import { useIsFirstRender, useObserver } from '@/hooks'
 
 import { ThemeToggleButton } from '@/modules/theme'
+import { CoursesSearch } from '@/modules/coursesList'
 
 export default function PageHeader() {
   const elementRef = useRef<HTMLDivElement | null>(null)
@@ -46,7 +47,11 @@ export default function PageHeader() {
           }}
         >
           <Logo />
-          <ThemeToggleButton />
+
+          <HStack spacing={3.5}>
+            <CoursesSearch />
+            <ThemeToggleButton />
+          </HStack>
         </HStack>
 
         <Divider />
