@@ -1,0 +1,1 @@
+export { useCoursesOptions } from './coursesOptions'

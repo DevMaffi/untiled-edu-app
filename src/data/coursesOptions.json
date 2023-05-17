@@ -1,0 +1,13 @@
+{
+  "categoryOptions": {
+    "all": {
+      "label": "Всі курси"
+    },
+    "popular": {
+      "label": "Популярні"
+    },
+    "likes": {
+      "label": "Вподобання"
+    }
+  }
+}
