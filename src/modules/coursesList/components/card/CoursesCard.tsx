@@ -10,19 +10,18 @@ type CourseCardProps = courseModel.Course
 
 export default function CoursesCard({
   title,
-  previewUrl,
+  preview,
   tags,
   lessonsCount,
   estimate,
   author,
-  authorAvaUrl,
   meta,
 }: CourseCardProps) {
   const { colorMode } = useColorMode()
 
   return (
     <VStack sx={{ borderRadius: 8, overflow: 'hidden' }} spacing={0}>
-      <CoursesCardPreview title={title} previewUrl={previewUrl} />
+      <CoursesCardPreview title={title} previewUrl={preview.url} />
 
       <VStack
         sx={{
@@ -42,7 +41,6 @@ export default function CoursesCard({
           lessonsCount={lessonsCount}
           estimate={estimate}
           author={author}
-          authorAvaUrl={authorAvaUrl}
         />
         <CoursesCardActions meta={meta} />
       </VStack>

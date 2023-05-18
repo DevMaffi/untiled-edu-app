@@ -8,8 +8,7 @@ type CoursesCardHeaderProps = {
   tags: courseModel.CourseTag[]
   lessonsCount: number
   estimate: number
-  author: string
-  authorAvaUrl: string
+  author: courseModel.CourseAuthor
 }
 
 export default function CoursesCardHeader({
@@ -17,7 +16,6 @@ export default function CoursesCardHeader({
   lessonsCount,
   estimate,
   author,
-  authorAvaUrl,
 }: CoursesCardHeaderProps) {
   return (
     <HStack
@@ -44,24 +42,24 @@ export default function CoursesCardHeader({
 
         <VStack sx={{ alignItems: 'start' }} spacing={1}>
           <Text noOfLines={1} sx={{ fontSize: 'sm' }}>
-            {lessonsCount} lessons | {convertMinutesToHHMM(estimate)}
+            {lessonsCount} уроків | {convertMinutesToHHMM(estimate)}
           </Text>
 
           <Text noOfLines={1} sx={{ fontSize: 'sm' }}>
             <Highlight
-              query={author}
+              query={author.name}
               styles={{ fontWeight: 'semibold', color: 'inherit' }}
             >
-              {`with ${author}`}
+              {`від ${author.name}`}
             </Highlight>
           </Text>
         </VStack>
       </VStack>
 
       <Image
-        src={authorAvaUrl}
+        src={author.avatar.url}
         sx={{
-          width: 14,
+          width: 16,
           height: 'auto',
           borderRadius: 'full',
           objectFit: 'contain',

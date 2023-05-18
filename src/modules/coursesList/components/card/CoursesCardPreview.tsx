@@ -13,13 +13,14 @@ export default function CoursesCardPreview({
     <Stack
       sx={{
         justifyContent: 'center',
+        width: 'full',
         minH: '180px',
         px: 4,
         bgImage: previewUrl,
         bgSize: 'cover',
       }}
     >
-      <Heading noOfLines={2} sx={{ fontWeight: 'medium' }} size={'lg'}>
+      <Heading noOfLines={2} sx={{ fontWeight: 'semibold' }} size={'lg'}>
         {title}
       </Heading>
     </Stack>

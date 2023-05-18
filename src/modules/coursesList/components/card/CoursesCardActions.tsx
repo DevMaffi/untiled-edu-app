@@ -20,7 +20,7 @@ export default function CoursesCardActions({ meta }: CoursesCardActionsProps) {
           colorScheme={meta.isLiked ? 'pink' : 'gray'}
           isActive={meta.isLiked}
         >
-          Like
+          Вподобайка
         </Button>
         <Button
           leftIcon={<SignalIcon width={20} />}
@@ -28,7 +28,7 @@ export default function CoursesCardActions({ meta }: CoursesCardActionsProps) {
           size={'md'}
           isDisabled
         >
-          Share
+          Поді...
         </Button>
       </ButtonGroup>
 

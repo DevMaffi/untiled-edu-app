@@ -1,12 +1,11 @@
 export type Course = {
   id: string
   title: string
-  previewUrl: string
+  preview: CourseAssetImageMeta
   tags: CourseTag[]
   lessonsCount: number
   estimate: number
-  author: string
-  authorAvaUrl: string
+  author: CourseAuthor
   meta: CourseMeta
 }
 
@@ -14,6 +13,11 @@ export type CourseTag = {
   id: string
   label: string
   color?: string
+}
+
+export type CourseAuthor = {
+  name: string
+  avatar: CourseAssetImageMeta
 }
 
 export type CourseMeta = {
@@ -29,4 +33,10 @@ export type CourseLang =
   | 'javascript'
   | 'react'
   | 'next'
-  | 'web-design'
+  | 'webDesign'
+
+export type CourseAssetImageMeta = {
+  url: string
+  mimeType?: string
+  fileName?: string
+}
