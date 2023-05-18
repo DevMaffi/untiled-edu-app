@@ -17,7 +17,7 @@ export type CoursesTopicOptionValue =
   | 'javascript'
   | 'react'
   | 'next'
-  | 'web-design'
+  | 'webDesign'
 
 export type MenuItemOption<T> = {
   value: T
