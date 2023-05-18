@@ -20,7 +20,7 @@ export default function CoursesCardsGrid() {
 
   if (error) {
     return (
-      <Alert status="error">
+      <Alert status={'error'}>
         <AlertIcon />
         <AlertTitle>Courses loading error!</AlertTitle>
         <AlertDescription>{error}</AlertDescription>
