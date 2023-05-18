@@ -31,7 +31,7 @@ export default function PageHeader() {
       <Box
         as={'header'}
         sx={{
-          pos: 'sticky',
+          pos: 'fixed',
           top: 0,
           insetX: 0,
           zIndex: 1000,
