@@ -25,7 +25,7 @@ export default function CoursesListHeader() {
   }, [entry])
 
   return (
-    <Box ref={elementRef}>
+    <Box as={'header'} ref={elementRef}>
       <CoursesListOptions />
     </Box>
   )

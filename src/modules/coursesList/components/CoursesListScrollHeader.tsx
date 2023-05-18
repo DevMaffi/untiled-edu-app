@@ -16,7 +16,7 @@ export default function CoursesListScrollHeader() {
   if (!scrolls) return null
 
   return (
-    <motion.div
+    <motion.header
       style={{
         position: 'absolute',
         insetInline: 0,
@@ -35,6 +35,6 @@ export default function CoursesListScrollHeader() {
       </Container>
 
       <Divider />
-    </motion.div>
+    </motion.header>
   )
 }
