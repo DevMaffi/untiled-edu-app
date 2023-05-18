@@ -14,7 +14,7 @@ export default function PageHeader() {
   const firstRender = useIsFirstRender()
   const entry = useObserver(elementRef)
 
-  const scrolls = !firstRender && !entry?.isIntersecting
+  const scrolls = !firstRender && !entry.isIntersecting
 
   return (
     <>

@@ -1,17 +1,24 @@
 import { useEffect, useState, type RefObject } from 'react'
 
+type ReturnType = {
+  isIntersecting: boolean
+  inBellowViewport: boolean
+}
+
 export function useObserver(
   elementRef: RefObject<Element>,
-  {
-    threshold = 0,
-    root = null,
-    rootMargin = '0%',
-  }: IntersectionObserverInit = {}
-) {
-  const [entry, setEntry] = useState<IntersectionObserverEntry>()
+  rootMargin = 0
+): ReturnType {
+  const [entry, setEntry] = useState<ReturnType>({
+    isIntersecting: false,
+    inBellowViewport: false,
+  })
 
   function updateEntry([entry]: IntersectionObserverEntry[]) {
-    setEntry(entry)
+    setEntry({
+      isIntersecting: entry.isIntersecting,
+      inBellowViewport: inBellowViewport(elementRef.current, rootMargin),
+    })
   }
 
   useEffect(() => {
@@ -20,7 +27,7 @@ export function useObserver(
 
     if (!hasIOSupport || !node) return
 
-    const observerParams = { threshold, root, rootMargin }
+    const observerParams = { rootMargin: rootMargin + 'px' }
     const observer = new IntersectionObserver(updateEntry, observerParams)
 
     observer.observe(node)
@@ -28,5 +35,12 @@ export function useObserver(
     return () => observer.disconnect()
   }, [elementRef.current])
 
-  return entry as IntersectionObserverEntry | undefined
+  return entry
+}
+
+function inBellowViewport(element: Element | null, rootMargin = 0): boolean {
+  if (!element) return false
+
+  const rect = element.getBoundingClientRect()
+  return rect.bottom - rootMargin <= document.documentElement.clientHeight
 }

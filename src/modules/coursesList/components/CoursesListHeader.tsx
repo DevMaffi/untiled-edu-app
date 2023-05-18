@@ -10,17 +10,18 @@ import { CoursesListOptions } from '@/modules/coursesList/components/options'
 export default function CoursesListHeader() {
   const elementRef = useRef<HTMLDivElement | null>(null)
 
-  const scrolls = useCoursesOptions(state => state.scrolls)
   const setScrolls = useCoursesOptions(state => state.setScrolls)
 
-  const entry = useObserver(elementRef, { rootMargin: '-80px' })
+  const entry = useObserver(elementRef, -80)
 
   useEffect(() => {
-    const visible = entry?.isIntersecting
+    const visible = entry.isIntersecting
 
-    if (scrolls === visible) {
-      setScrolls(!visible)
+    if (visible || !entry.inBellowViewport) {
+      return setScrolls(false)
     }
+
+    setScrolls(true)
   }, [entry])
 
   return (
