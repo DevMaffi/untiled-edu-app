@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Icon, Heading, HStack } from '@chakra-ui/react'
 import { CommandLineIcon } from '@heroicons/react/24/outline'
 
@@ -10,7 +12,7 @@ export default function Logo() {
   })
 
   return (
-    <HStack spacing={1.5}>
+    <HStack as={Link} to={'/courses'} spacing={1.5}>
       <Icon as={CommandLineIcon} boxSize={6} />
 
       <Heading sx={{ fontWeight: 'semibold' }} size={'md'}>

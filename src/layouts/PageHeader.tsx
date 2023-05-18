@@ -1,4 +1,5 @@
 import { useRef } from 'react'
+import { useMatch } from 'react-router-dom'
 
 import { Box, Divider, HStack } from '@chakra-ui/react'
 
@@ -10,6 +11,8 @@ import { CoursesSearch, CoursesListScrollHeader } from '@/modules/coursesList'
 
 export default function PageHeader() {
   const elementRef = useRef<HTMLDivElement | null>(null)
+
+  const match = useMatch('/courses')
 
   const firstRender = useIsFirstRender()
   const entry = useObserver(elementRef)
@@ -56,7 +59,7 @@ export default function PageHeader() {
 
         <Divider />
 
-        <CoursesListScrollHeader />
+        {match && <CoursesListScrollHeader />}
       </Box>
     </>
   )

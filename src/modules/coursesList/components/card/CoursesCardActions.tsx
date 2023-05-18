@@ -1,3 +1,5 @@
+import { Link } from 'react-router-dom'
+
 import { Button, ButtonGroup, IconButton, HStack } from '@chakra-ui/react'
 import { SignalIcon, PlayIcon } from '@heroicons/react/24/outline'
 
@@ -43,6 +45,8 @@ export default function CoursesCardActions({
       </ButtonGroup>
 
       <IconButton
+        as={Link}
+        to={`/courses/${id}`}
         aria-label={'Start course'}
         icon={<PlayIcon width={24} />}
         sx={{ color: 'inherit' }}
