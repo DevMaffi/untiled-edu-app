@@ -1,3 +1,5 @@
+import _ from 'lodash'
+
 import { create } from 'zustand'
 
 import { devtools, persist, createJSONStorage } from 'zustand/middleware'
@@ -12,10 +14,12 @@ type State = {
   courses: courseModel.Course[]
   areCoursesLoading: boolean
   error: string | null
+  isIntersected: boolean
 }
 
 type Actions = {
   fetchCourses: () => Promise<void>
+  setIsIntersected: () => void
 }
 
 export const useCourses = create<State & Actions>()(
@@ -25,6 +29,8 @@ export const useCourses = create<State & Actions>()(
         courses: [],
         areCoursesLoading: false,
         error: null,
+
+        isIntersected: false,
 
         fetchCourses: async () => {
           set({ areCoursesLoading: true })
@@ -39,10 +45,18 @@ export const useCourses = create<State & Actions>()(
             set({ areCoursesLoading: false })
           }
         },
+
+        setIsIntersected: () => set({ isIntersected: true }),
       })),
       {
         name: LS_COURSES_STORAGE_KEY,
         storage: createJSONStorage(() => localStorage),
+
+        partialize: state => {
+          return _.fromPairs(
+            _.toPairs(state).filter(([key]) => !['isIntersected'].includes(key))
+          )
+        },
       }
     ),
     { name: 'courses' }
