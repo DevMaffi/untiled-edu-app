@@ -14,7 +14,7 @@ import { useCoursesFetch } from '@/modules/coursesList/hooks'
 export default function CoursesCardsGrid() {
   const [courses, areCoursesLoading, error, isIntersected] = useCoursesFetch()
 
-  if (areCoursesLoading) {
+  if (areCoursesLoading || !isIntersected) {
     return <CoursesCardsGridSkeleton />
   }
 
@@ -27,8 +27,6 @@ export default function CoursesCardsGrid() {
       </Alert>
     )
   }
-
-  if (!isIntersected) return null
 
   return (
     <SimpleGrid columns={3} spacing={8}>
