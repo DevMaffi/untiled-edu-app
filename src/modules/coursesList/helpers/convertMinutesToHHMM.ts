@@ -6,6 +6,6 @@ export function convertMinutesToHHMM(minutes: number): string {
   const hours = Math.floor(duration.asHours())
   const mins = Math.floor(duration.asMinutes()) % 60
 
-  const formattedTime = `${hours} hours ${mins} min`
+  const formattedTime = `${hours} годин ${mins} хв`
   return formattedTime
 }
