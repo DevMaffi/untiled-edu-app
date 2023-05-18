@@ -8,6 +8,9 @@
     },
     "likes": {
       "label": "Вподобання"
+    },
+    "free": {
+      "label": "Безкоштовні"
     }
   },
   "topicOptions": {

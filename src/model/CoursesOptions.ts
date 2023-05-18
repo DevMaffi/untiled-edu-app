@@ -6,7 +6,7 @@ export type CoursesOptionsState = {
 export type CoursesCategoryOptionMeta =
   MenuItemOption<CoursesCategoryOptionValue>
 
-export type CoursesCategoryOptionValue = 'all' | 'popular' | 'likes'
+export type CoursesCategoryOptionValue = 'all' | 'popular' | 'likes' | 'free'
 
 export type CoursesTopicOptionMeta = MenuItemOption<CoursesTopicOptionValue>
 
