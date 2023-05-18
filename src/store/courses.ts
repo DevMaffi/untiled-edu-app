@@ -20,12 +20,13 @@ type State = {
 type Actions = {
   fetchCourses: () => Promise<void>
   setIsIntersected: () => void
+  toggleCourseLike: (id: string) => void
 }
 
 export const useCourses = create<State & Actions>()(
   devtools(
     persist(
-      immer(set => ({
+      immer((set, get) => ({
         courses: [],
         areCoursesLoading: false,
         error: null,
@@ -36,7 +37,9 @@ export const useCourses = create<State & Actions>()(
           set({ areCoursesLoading: true })
 
           try {
-            const { courses } = await coursesService.getAllCourses()
+            const resp = await coursesService.getAllCourses()
+
+            const courses = hydrateCourses(get().courses, resp.courses)
             set({ courses, error: null })
           } catch (err) {
             if (err instanceof Error) set({ error: err.message })
@@ -47,6 +50,14 @@ export const useCourses = create<State & Actions>()(
         },
 
         setIsIntersected: () => set({ isIntersected: true }),
+
+        toggleCourseLike: id =>
+          set(state => {
+            const course = state.courses.find(course => course.id === id)
+            if (!course) return
+
+            course.meta.isLiked = !course.meta.isLiked
+          }),
       })),
       {
         name: LS_COURSES_STORAGE_KEY,
@@ -62,3 +73,15 @@ export const useCourses = create<State & Actions>()(
     { name: 'courses' }
   )
 )
+
+function hydrateCourses(
+  courses: courseModel.Course[],
+  rawCourses: courseModel.Course[]
+): courseModel.Course[] {
+  return rawCourses.map(rawCourse => {
+    const course = courses.find(course => course.id === rawCourse.id)
+
+    if (!course) return rawCourse
+    return { ...rawCourse, meta: course.meta }
+  })
+}

@@ -9,6 +9,7 @@ import CoursesCardActions from '@/modules/coursesList/components/card/CoursesCar
 type CourseCardProps = courseModel.Course
 
 export default function CoursesCard({
+  id,
   title,
   preview,
   tags,
@@ -42,7 +43,7 @@ export default function CoursesCard({
           estimate={estimate}
           author={author}
         />
-        <CoursesCardActions meta={meta} />
+        <CoursesCardActions id={id} meta={meta} />
       </VStack>
     </VStack>
   )
