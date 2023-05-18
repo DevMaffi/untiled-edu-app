@@ -1,4 +1,12 @@
-import { Badge, Image, Highlight, HStack, Text, VStack } from '@chakra-ui/react'
+import {
+  Badge,
+  Box,
+  Image,
+  Highlight,
+  HStack,
+  Text,
+  VStack,
+} from '@chakra-ui/react'
 
 import { courseModel } from '@/model'
 
@@ -20,7 +28,11 @@ export default function CoursesCardHeader({
   return (
     <HStack
       as={'header'}
-      sx={{ justifyContent: 'space-between', width: 'full' }}
+      sx={{
+        justifyContent: 'space-between',
+        alignItems: 'start',
+        width: 'full',
+      }}
       spacing={8}
     >
       <VStack sx={{ alignItems: 'start' }} spacing={2.5}>
@@ -56,16 +68,19 @@ export default function CoursesCardHeader({
         </VStack>
       </VStack>
 
-      <Image
-        src={author.avatar.url}
-        sx={{
-          width: 16,
-          height: 'auto',
-          borderRadius: 'full',
-          objectFit: 'contain',
-        }}
-        alt={'Author ava'}
-      />
+      <Box sx={{ pt: 2.5 }}>
+        <Image
+          src={author.avatar.url}
+          sx={{
+            minW: 16,
+            width: 16,
+            height: 'auto',
+            borderRadius: 'full',
+            objectFit: 'contain',
+          }}
+          alt={'Author ava'}
+        />
+      </Box>
     </HStack>
   )
 }
