@@ -28,7 +28,7 @@ export default function CoursesListSection() {
       ref={elementRef}
       as={'section'}
       maxW={'container.xl'}
-      sx={{ scrollMarginTop: 40 }}
+      sx={{ scrollMarginTop: 28 }}
     >
       <Box sx={{ px: 5 }}>
         <CoursesListHeader />

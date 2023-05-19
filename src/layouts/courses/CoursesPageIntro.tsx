@@ -2,6 +2,7 @@ import {
   useColorMode,
   Container,
   Icon,
+  Image,
   Heading,
   HStack,
   Text,
@@ -10,11 +11,45 @@ import {
 
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
+import unit1 from '@/assets/unit_01.png'
+import unit2 from '@/assets/unit_02.png'
+
 export default function CoursesPageIntro() {
   const { colorMode } = useColorMode()
 
   return (
-    <Container id={'coursesIntro'} as={'section'} maxW={'container.md'}>
+    <Container
+      id={'coursesIntro'}
+      as={'section'}
+      maxW={'container.md'}
+      sx={{ pos: 'relative' }}
+    >
+      <Image
+        src={unit1}
+        sx={{
+          pos: 'absolute',
+          top: 0,
+          left: 0,
+          height: '100px',
+          objectFit: 'contain',
+          transform: 'translate(-75%, -35%)',
+        }}
+        alt={'Unit'}
+      />
+
+      <Image
+        src={unit2}
+        sx={{
+          pos: 'absolute',
+          bottom: 0,
+          right: 0,
+          height: '85px',
+          objectFit: 'contain',
+          transform: 'translate(15%, 50%)',
+        }}
+        alt={'Unit'}
+      />
+
       <HStack spacing={5}>
         <Heading
           as={'h1'}
