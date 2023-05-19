@@ -30,7 +30,7 @@ export default function CoursesCardsGrid() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: '180px',
+          minH: '180px',
           textAlign: 'center',
         }}
         variant={'subtle'}
@@ -52,7 +52,7 @@ export default function CoursesCardsGrid() {
           flexDirection: 'column',
           justifyContent: 'center',
           alignItems: 'center',
-          minHeight: '180px',
+          minH: '180px',
           textAlign: 'center',
         }}
         variant={'subtle'}
