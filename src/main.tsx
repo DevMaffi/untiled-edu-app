@@ -7,6 +7,8 @@ import App from '@/App.tsx'
 
 import { theme } from '@/modules/theme'
 
+import '@/index.css'
+
 ReactDOM.createRoot(document.getElementById('root') as HTMLElement).render(
   <BrowserRouter>
     <ChakraProvider theme={theme}>

@@ -23,7 +23,13 @@ export default function CoursesListSection() {
   }, [entry])
 
   return (
-    <Container ref={elementRef} as={'section'} maxW={'container.xl'}>
+    <Container
+      id={'coursesList'}
+      ref={elementRef}
+      as={'section'}
+      maxW={'container.xl'}
+      sx={{ scrollMarginTop: 40 }}
+    >
       <Box sx={{ px: 5 }}>
         <CoursesListHeader />
       </Box>
