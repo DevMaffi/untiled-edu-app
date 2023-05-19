@@ -18,7 +18,7 @@ export default function CoursesSearch() {
   return (
     <InputGroup size={'md'}>
       <InputLeftElement pointerEvents={'none'}>
-        <Icon as={MagnifyingGlassIcon} boxSize={5} />
+        <Icon as={MagnifyingGlassIcon} boxSize={5} color={'gray'} />
       </InputLeftElement>
 
       <Input
@@ -26,6 +26,7 @@ export default function CoursesSearch() {
         placeholder={'Search by name...'}
         sx={{ borderRadius: 6 }}
         variant={'filled'}
+        isDisabled
         onChange={evt => setSearchQuery(evt.target.value)}
       />
 
