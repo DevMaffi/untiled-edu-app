@@ -7,7 +7,7 @@ import { CoursesRoutes } from '@/routes'
 
 export default function App() {
   return (
-    <Box>
+    <Box sx={{ zoom: '90%' }}>
       <PageHeader />
 
       <Routes>
