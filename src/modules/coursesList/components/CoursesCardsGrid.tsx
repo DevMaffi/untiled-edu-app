@@ -9,10 +9,14 @@ import {
 import CoursesCardsGridSkeleton from '@/modules/coursesList/components/CoursesCardsGridSkeleton'
 import { CoursesCard } from '@/modules/coursesList/components/card'
 
-import { useCoursesFetch } from '@/modules/coursesList/hooks'
+import {
+  useCoursesFetch,
+  useCoursesDataProcessor,
+} from '@/modules/coursesList/hooks'
 
 export default function CoursesCardsGrid() {
   const [courses, areCoursesLoading, error, isIntersected] = useCoursesFetch()
+  const processedCourses = useCoursesDataProcessor()
 
   if (areCoursesLoading || !isIntersected) {
     return <CoursesCardsGridSkeleton />
@@ -28,9 +32,18 @@ export default function CoursesCardsGrid() {
     )
   }
 
+  if (!processedCourses.length) {
+    return (
+      <Alert status={'info'}>
+        <AlertIcon />
+        <AlertDescription>Жодного курсу не знайдено :{'('}</AlertDescription>
+      </Alert>
+    )
+  }
+
   return (
     <SimpleGrid columns={3} spacing={8}>
-      {courses.map(course => (
+      {processedCourses.map(course => (
         <CoursesCard
           key={course.id}
           id={course.id}
