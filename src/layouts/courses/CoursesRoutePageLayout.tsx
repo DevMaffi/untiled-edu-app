@@ -4,7 +4,7 @@ import { Box } from '@chakra-ui/react'
 
 export default function CoursesRoutePageLayout() {
   return (
-    <Box sx={{ pt: 56, mb: 20 }}>
+    <Box sx={{ pt: 28, mb: 20 }}>
       <Outlet />
     </Box>
   )

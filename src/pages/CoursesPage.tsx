@@ -6,7 +6,7 @@ import { CoursesListSection } from '@/modules/coursesList'
 
 export default function CoursesPage() {
   return (
-    <Box>
+    <Box sx={{ mt: 28 }}>
       <CoursesPageIntro />
 
       <Box sx={{ mt: 28 }}>
