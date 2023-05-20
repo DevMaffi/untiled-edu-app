@@ -4,9 +4,9 @@ import { Button, ButtonGroup, IconButton, HStack } from '@chakra-ui/react'
 import { SignalIcon, PlayIcon } from '@heroicons/react/24/outline'
 
 import { courseModel } from '@/model'
-import { useCourses } from '@/store'
 
-import { defineLikeIcon } from '@/modules/coursesList/helpers'
+import { useCourses } from '@/store'
+import { defineLikeIcon } from '@/helpers'
 
 type CoursesCardActionsProps = {
   id: string
