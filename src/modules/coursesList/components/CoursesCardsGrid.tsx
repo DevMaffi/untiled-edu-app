@@ -18,7 +18,7 @@ export default function CoursesCardsGrid() {
   const [courses, areCoursesLoading, error, isIntersected] = useCoursesFetch()
   const processedCourses = useCoursesDataProcessor()
 
-  if (areCoursesLoading || !isIntersected) {
+  if (!courses.length || areCoursesLoading || !isIntersected) {
     return <CoursesCardsGridSkeleton />
   }
 
