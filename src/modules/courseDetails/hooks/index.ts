@@ -1,0 +1,1 @@
+export { useCourseDetailsFetch } from './useCourseDetailsFetch'
