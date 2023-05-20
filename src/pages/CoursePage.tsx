@@ -13,7 +13,7 @@ import { useScrollTop } from '@/hooks'
 import {
   useCourseDetailsFetch,
   CoursePageIntroSkeleton,
-  CourseDetailsActions,
+  CourseDetailsHeader,
   CourseProgram,
   CourseSummary,
 } from '@/modules/courseDetails'
@@ -42,7 +42,7 @@ export default function CoursePage() {
       )}
 
       <Box sx={{ mt: 28 }}>
-        <CourseDetailsActions />
+        <CourseDetailsHeader />
       </Box>
 
       <Box sx={{ mt: 10 }}>

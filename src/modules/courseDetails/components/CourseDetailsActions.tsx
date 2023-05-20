@@ -22,7 +22,7 @@ export default function CourseDetailsActions() {
   const LikeIcon = defineLikeIcon(!!courseMetaPersist?.isLiked)
 
   return (
-    <Container maxW={'container.md'} sx={{ scrollMarginTop: 28 }}>
+    <Container maxW={'container.md'}>
       <ButtonGroup spacing={2.5}>
         <Button
           as={Link}

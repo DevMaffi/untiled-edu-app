@@ -10,10 +10,12 @@ type State = {
   courseDetails: courseDetailsModel.CourseWithDetails | null
   isCourseLoading: boolean
   error: string | null
+  scrolls: boolean
 }
 
 type Actions = {
   fetchCourseDetails: (id: string) => Promise<void>
+  setScrolls: (scrolls: boolean) => void
 }
 
 export const useCourseDetails = create<State & Actions>()(
@@ -23,6 +25,8 @@ export const useCourseDetails = create<State & Actions>()(
         courseDetails: null,
         isCourseLoading: false,
         error: null,
+
+        scrolls: false,
 
         fetchCourseDetails: async id => {
           set({ isCourseLoading: true })
@@ -37,6 +41,8 @@ export const useCourseDetails = create<State & Actions>()(
             set({ isCourseLoading: false })
           }
         },
+
+        setScrolls: scrolls => set({ scrolls }),
       }),
       {
         name: LS_COURSE_DETAILS_STORAGE_KEY,

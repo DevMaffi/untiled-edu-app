@@ -7,12 +7,15 @@ import { Logo } from '@/components'
 import { useIsFirstRender, useObserver } from '@/hooks'
 
 import { ThemeToggleButton } from '@/modules/theme'
+
 import { CoursesSearch, CoursesListScrollHeader } from '@/modules/coursesList'
+import { CourseDetailsScrollHeader } from '@/modules/courseDetails'
 
 export default function PageHeader() {
   const elementRef = useRef<HTMLDivElement | null>(null)
 
-  const match = useMatch('/courses')
+  const courses = useMatch('/courses')
+  const courseDetails = useMatch('/courses/:id')
 
   const firstRender = useIsFirstRender()
   const entry = useObserver(elementRef)
@@ -59,7 +62,8 @@ export default function PageHeader() {
 
         <Divider />
 
-        {match && <CoursesListScrollHeader />}
+        {courses && <CoursesListScrollHeader />}
+        {courseDetails && <CourseDetailsScrollHeader />}
       </Box>
     </>
   )
