@@ -1,7 +1,5 @@
 import {
-  useColorMode,
   Container,
-  Icon,
   Image,
   Heading,
   HStack,
@@ -11,12 +9,12 @@ import {
 
 import { ArrowTopRightOnSquareIcon } from '@heroicons/react/24/outline'
 
+import { AnchorButton } from '@/components/ui'
+
 import unit1 from '@/assets/unit_01.png'
 import unit2 from '@/assets/unit_02.png'
 
 export default function CoursesPageIntro() {
-  const { colorMode } = useColorMode()
-
   return (
     <Container
       id={'coursesIntro'}
@@ -75,25 +73,9 @@ export default function CoursesPageIntro() {
       </HStack>
 
       <HStack spacing={8}>
-        <HStack
-          as={'a'}
-          href={'#coursesList'}
-          sx={{
-            mt: 3,
-            py: 2.5,
-            px: 6,
-            bgColor: colorMode === 'light' ? 'brand.500' : 'brand.200',
-            borderRadius: 'full',
-            '&:hover': {
-              bgColor: colorMode === 'light' ? 'brand.600' : 'brand.300',
-            },
-            transition: 'all 400ms',
-          }}
-          spacing={3}
-        >
-          <Icon as={ArrowTopRightOnSquareIcon} boxSize={6} />
-          <Text sx={{ fontSize: '2xl' }}>Почати зараз</Text>
-        </HStack>
+        <AnchorButton to={'#coursesList'} leftIcon={ArrowTopRightOnSquareIcon}>
+          Почати зараз
+        </AnchorButton>
 
         <Heading
           sx={{ fontWeight: 'semibold', lineHeight: '80px' }}
