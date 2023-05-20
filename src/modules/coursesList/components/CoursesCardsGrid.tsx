@@ -6,6 +6,8 @@ import {
   SimpleGrid,
 } from '@chakra-ui/react'
 
+import { useIsFirstRender } from '@/hooks'
+
 import CoursesCardsGridSkeleton from '@/modules/coursesList/components/CoursesCardsGridSkeleton'
 import { CoursesCard } from '@/modules/coursesList/components/card'
 
@@ -15,14 +17,16 @@ import {
 } from '@/modules/coursesList/hooks'
 
 export default function CoursesCardsGrid() {
+  const isFirstRender = useIsFirstRender()
+
   const [courses, areCoursesLoading, error, isIntersected] = useCoursesFetch()
   const processedCourses = useCoursesDataProcessor()
 
-  if (!courses.length || areCoursesLoading || !isIntersected) {
+  if (areCoursesLoading || !isIntersected) {
     return <CoursesCardsGridSkeleton />
   }
 
-  if (error) {
+  if ((!isFirstRender && !courses.length) || error) {
     return (
       <Alert
         status={'error'}
