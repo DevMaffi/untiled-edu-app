@@ -13,9 +13,9 @@ export default function Logo() {
 
   return (
     <HStack as={Link} to={'/courses'} spacing={1.5}>
-      <Icon as={CommandLineIcon} boxSize={6} />
+      <Icon as={CommandLineIcon} boxSize={[5, 6]} />
 
-      <Heading sx={{ fontWeight: 'semibold' }} size={'md'}>
+      <Heading sx={{ fontWeight: 'semibold' }} size={['sm', 'md']}>
         {text}
       </Heading>
     </HStack>

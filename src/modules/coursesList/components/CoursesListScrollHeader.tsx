@@ -29,7 +29,7 @@ export default function CoursesListScrollHeader() {
       transition={{ ease: 'linear' }}
     >
       <Container maxW={'container.xl'} sx={{ bgColor: 'chakra-body-bg' }}>
-        <Box sx={{ py: 3.5, px: 5 }}>
+        <Box sx={{ py: 3.5, px: { base: 0, lg: 5 } }}>
           <CoursesListOptions />
         </Box>
       </Container>

@@ -30,7 +30,7 @@ export default function CoursesListSection() {
       maxW={'container.xl'}
       sx={{ scrollMarginTop: 28 }}
     >
-      <Box sx={{ px: 5 }}>
+      <Box sx={{ px: { base: 0, lg: 5 } }}>
         <CoursesListHeader />
       </Box>
 

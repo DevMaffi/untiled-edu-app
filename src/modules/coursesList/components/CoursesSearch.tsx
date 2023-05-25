@@ -16,31 +16,49 @@ export default function CoursesSearch() {
   const setSearchQuery = useCoursesOptions(state => state.setSearchQuery)
 
   return (
-    <InputGroup size={'md'}>
-      <InputLeftElement pointerEvents={'none'}>
-        <Icon as={MagnifyingGlassIcon} boxSize={5} color={'gray'} />
-      </InputLeftElement>
-
-      <Input
-        value={searchQuery}
-        placeholder={'Search by name...'}
-        sx={{ borderRadius: 6 }}
-        variant={'filled'}
+    <>
+      <IconButton
+        aria-label={'Toggle color mode'}
+        icon={<MagnifyingGlassIcon width={20} />}
+        sx={{ display: { base: 'flex', md: 'none' } }}
+        size={'md'}
         isDisabled
-        onChange={evt => setSearchQuery(evt.target.value)}
       />
 
-      {searchQuery && (
-        <InputRightElement>
-          <IconButton
-            aria-label={'Reset search'}
-            icon={<XMarkIcon width={16} />}
-            variant={'ghost'}
-            size={'xs'}
-            onClick={() => setSearchQuery('')}
-          />
-        </InputRightElement>
-      )}
-    </InputGroup>
+      <InputGroup
+        sx={{
+          display: {
+            base: 'none',
+            md: 'flex',
+          },
+        }}
+        size={'md'}
+      >
+        <InputLeftElement pointerEvents={'none'}>
+          <Icon as={MagnifyingGlassIcon} boxSize={5} color={'gray'} />
+        </InputLeftElement>
+
+        <Input
+          value={searchQuery}
+          placeholder={'Search by name...'}
+          sx={{ borderRadius: 6 }}
+          variant={'filled'}
+          isDisabled
+          onChange={evt => setSearchQuery(evt.target.value)}
+        />
+
+        {searchQuery && (
+          <InputRightElement>
+            <IconButton
+              aria-label={'Reset search'}
+              icon={<XMarkIcon width={16} />}
+              variant={'ghost'}
+              size={'xs'}
+              onClick={() => setSearchQuery('')}
+            />
+          </InputRightElement>
+        )}
+      </InputGroup>
+    </>
   )
 }

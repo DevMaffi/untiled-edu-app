@@ -46,15 +46,19 @@ export default function PageHeader() {
         <HStack
           sx={{
             justifyContent: 'space-between',
-            py: scrolls ? 3.5 : 10,
-            px: 20,
+            py: scrolls ? [2, 3.5] : [5, 10],
+            px: {
+              base: 4,
+              xl: 10,
+              '2xl': 20,
+            },
             bgColor: 'chakra-body-bg',
             transition: 'all 400ms',
           }}
         >
           <Logo />
 
-          <HStack spacing={3.5}>
+          <HStack spacing={[2, 3.5]}>
             <CoursesSearch />
             <ThemeToggleButton />
           </HStack>
