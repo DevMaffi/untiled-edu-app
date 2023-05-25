@@ -72,8 +72,18 @@ export default function CoursesCardHeader({
         <Image
           src={author.avatar.url}
           sx={{
-            minW: 16,
-            width: 16,
+            minW: {
+              base: 14,
+              sm: 16,
+              lg: 14,
+              xl: 16,
+            },
+            width: {
+              base: 14,
+              sm: 16,
+              lg: 14,
+              xl: 16,
+            },
             height: 'auto',
             borderRadius: 'full',
             objectFit: 'contain',

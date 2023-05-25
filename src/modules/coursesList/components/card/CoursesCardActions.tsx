@@ -27,17 +27,28 @@ export default function CoursesCardActions({
         <Button
           leftIcon={<LikeIcon width={20} />}
           variant={'outline'}
-          size={'md'}
+          size={{ base: 'sm', xl: 'md' }}
           colorScheme={meta.isLiked ? 'pink' : 'gray'}
           isActive={meta.isLiked}
           onClick={() => toggleCourseLike(id)}
         >
           Вподобайка
         </Button>
+
+        <IconButton
+          aria-label={'Start course'}
+          icon={<SignalIcon width={24} />}
+          sx={{ display: { base: 'inline-flex', xl: 'none' } }}
+          variant={'outline'}
+          size={{ base: 'sm', xl: 'md' }}
+          isDisabled
+        />
+
         <Button
           leftIcon={<SignalIcon width={20} />}
+          sx={{ display: { base: 'none', xl: 'inline-flex' } }}
           variant={'outline'}
-          size={'md'}
+          size={{ base: 'sm', xl: 'md' }}
           isDisabled
         >
           Поді...

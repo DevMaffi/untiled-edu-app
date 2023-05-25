@@ -20,7 +20,11 @@ export default function CoursesCardPreview({
         bgSize: 'cover',
       }}
     >
-      <Heading noOfLines={2} sx={{ fontWeight: 'semibold' }} size={'lg'}>
+      <Heading
+        noOfLines={2}
+        sx={{ fontWeight: 'semibold' }}
+        size={{ base: 'lg', lg: 'md', xl: 'lg' }}
+      >
         {title}
       </Heading>
     </Stack>

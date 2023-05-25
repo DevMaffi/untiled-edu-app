@@ -74,7 +74,7 @@ export default function CoursesCardsGrid() {
   }
 
   return (
-    <SimpleGrid columns={3} spacing={8}>
+    <SimpleGrid columns={{ base: 1, md: 2, lg: 3 }} spacing={8}>
       {processedCourses.map(course => (
         <CoursesCard
           key={course.id}
