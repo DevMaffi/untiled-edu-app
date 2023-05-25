@@ -51,6 +51,7 @@ export default function CourseDetailsActions() {
 
         <Button
           leftIcon={<SignalIcon width={16} />}
+          sx={{ display: { base: 'none', sm: 'inline-flex' } }}
           variant={'outline'}
           size={'sm'}
           isDisabled

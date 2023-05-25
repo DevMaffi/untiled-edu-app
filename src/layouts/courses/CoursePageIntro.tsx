@@ -22,19 +22,27 @@ export default function CoursePageIntro() {
     >
       <Box
         sx={{
-          py: 20,
+          pt: { base: 24, md: 20 },
+          pb: { base: 10, md: 20 },
           bgImage: courseDetails?.details?.cover.url,
           bgSize: 'cover',
           textAlign: 'right',
         }}
       >
-        <Container id={'courseIntro'} as={'section'} maxW={'container.md'}>
-          <VStack sx={{ alignItems: 'end' }} spacing={6}>
+        <Container
+          id={'courseIntro'}
+          as={'section'}
+          maxW={{ base: 'container.sm', md: 'container.md' }}
+        >
+          <VStack sx={{ alignItems: 'end' }} spacing={{ base: 3.5, md: 6 }}>
             <Heading as={'h1'} sx={{ fontWeight: 'semibold' }} size={'2xl'}>
               {courseDetails?.title}
             </Heading>
 
-            <Text noOfLines={3} sx={{ fontSize: 'xl' }}>
+            <Text
+              noOfLines={3}
+              sx={{ maxW: { base: 480, md: 'full' }, fontSize: 'xl' }}
+            >
               {courseDetails?.details?.description}
             </Text>
 

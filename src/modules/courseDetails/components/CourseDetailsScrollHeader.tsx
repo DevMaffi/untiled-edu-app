@@ -1,5 +1,5 @@
 import { motion, type Variants } from 'framer-motion'
-import { Box, Container, Divider } from '@chakra-ui/react'
+import { Box, Divider } from '@chakra-ui/react'
 
 import { useCourseDetails } from '@/store'
 
@@ -28,11 +28,9 @@ export default function CourseDetailsScrollHeader() {
       animate={'scrolls'}
       transition={{ ease: 'linear' }}
     >
-      <Container maxW={'container.xl'} sx={{ bgColor: 'chakra-body-bg' }}>
-        <Box sx={{ py: 3.5 }}>
-          <CourseDetailsActions />
-        </Box>
-      </Container>
+      <Box sx={{ py: 3.5, bgColor: 'chakra-body-bg' }}>
+        <CourseDetailsActions />
+      </Box>
 
       <Divider />
     </motion.header>

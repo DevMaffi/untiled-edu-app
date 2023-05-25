@@ -35,7 +35,7 @@ export default function CoursePage() {
         <Alert status={'warning'}>
           <AlertIcon />
           <AlertTitle>No details!</AlertTitle>
-          <AlertDescription>
+          <AlertDescription sx={{ display: { base: 'none', sm: 'inline' } }}>
             These course has no details provided yet.
           </AlertDescription>
         </Alert>
