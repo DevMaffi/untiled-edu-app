@@ -8,7 +8,7 @@ import { CoursesListSection } from '@/modules/coursesList'
 
 export default function CoursesPage() {
   useScrollTop()
-  
+
   return (
     <Box sx={{ mt: 28 }}>
       <CoursesPageIntro />
